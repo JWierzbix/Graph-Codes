@@ -5,14 +5,30 @@ namespace DNS
     {
         public static void Main(string[] agrs)
         {
-            int[,] G = { {0,0,0,1,0 },
+            //1 przykład
+            int[,] G1 = { {0,0,0,1,0 },
                          {0,0,1,1,1 },
                          {0,1,0,0,0 },
                          {1,1,0,0,1 },
                          {0,1,0,1,0 }
                            };
+
+            //2 przykład
+            int[,] G2 = { {0,1,0,0,1,0,0,0,0,0,0,0},
+                         {1,0,0,0,0,0,0,0,0,0,0,0},
+                         {0,0,0,1,0,0,1,1,0,0,0,0},
+                         {0,0,1,0,0,0,0,1,0,0,0,0},
+                         {1,0,0,0,0,0,0,0,1,1,0,0},
+                         {0,0,0,0,0,0,0,0,0,0,0,0},
+                         {0,0,1,0,0,0,0,1,0,0,1,0},
+                         {0,0,1,1,0,0,1,0,0,0,1,1},
+                         {0,0,0,0,1,0,0,0,0,1,0,0},
+                         {0,0,0,0,1,0,0,0,1,0,0,0},
+                         {0,0,0,0,0,0,1,1,0,0,0,0},
+                         {0,0,0,0,0,0,0,1,0,0,0,0}
+                           };
                         
-            DFS(G);            
+            DFS(G2);            
         }
         public static void DFS(int[,] G)
         {
@@ -49,11 +65,11 @@ namespace DNS
             {
                 if(G[v,i]==1 && odwiedzone[i].odwiedzone == false)
                 {
-                    Explore(G, ref odwiedzone, i,ref licznik);
-                    licznik++;
+                    Explore(G, ref odwiedzone, i,ref licznik);                    
                 }
             }            
             odwiedzone[v].post = licznik;
+            licznik++;
         }
     }
     public class Vertex

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFS_Algorithm", "DFS_Algorithm\DFS_Algorithm.csproj", "{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFS_Algorithm", "BFS_Algorithm\BFS_Algorithm.csproj", "{66DF13E6-A533-4D48-B464-0C7824BC8065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ford_Fulkerson_Algorithm", "Ford_Fulkerson_Algorithm\Ford_Fulkerson_Algorithm.csproj", "{4F7A582B-F61C-4E18-B083-48F7075AC02E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DF13E6-A533-4D48-B464-0C7824BC8065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DF13E6-A533-4D48-B464-0C7824BC8065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DF13E6-A533-4D48-B464-0C7824BC8065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DF13E6-A533-4D48-B464-0C7824BC8065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7A582B-F61C-4E18-B083-48F7075AC02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7A582B-F61C-4E18-B083-48F7075AC02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7A582B-F61C-4E18-B083-48F7075AC02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7A582B-F61C-4E18-B083-48F7075AC02E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

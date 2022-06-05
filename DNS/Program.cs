@@ -27,8 +27,27 @@ namespace DNS
                          {0,0,0,0,0,0,1,1,0,0,0,0},
                          {0,0,0,0,0,0,0,1,0,0,0,0}
                            };
-                        
-            DFS(G2);            
+
+            DFS(G1);         
+        }
+        public static void CzyMaCykle(int[,] G, Vertex[] visited)
+        {
+            int cykle = 0;
+            string zapis = ""; 
+            for (int i = 0; i < visited.Length; i++)
+            {
+                for (int j = 0; j < visited.Length; j++)
+                {
+                    if (i == j) continue;
+                    if (visited[i].pre < visited[j].pre && visited[j].pre < visited[j].post && visited[j].post < visited[i].post && G[i, j] == 1)
+                    {
+                        cykle++;
+                        zapis += $"{(char)(65+i)}-{(char)(65 + j)} \n";
+                    }
+                }
+            }            
+            Console.WriteLine("Graf G ma {0} cykli:",cykle);
+            Console.WriteLine(zapis);
         }
         public static void DFS(int[,] G)
         {
@@ -55,6 +74,7 @@ namespace DNS
             }
             Console.WriteLine("ilość spójnych skłądowych: {0}",spojne_składowe);
             Console.WriteLine("Czy graf jest spójny? -> {0}",spojne_składowe==1);
+            CzyMaCykle(G,odwiedzone);
         }
         public static void Explore(int[,] G,ref Vertex[] odwiedzone,int v ,ref int licznik)
         {
@@ -65,6 +85,7 @@ namespace DNS
             {
                 if(G[v,i]==1 && odwiedzone[i].odwiedzone == false)
                 {
+                    G[v, i] = -1;//zaznaczamy że ta krawędź została już odwiedzona
                     Explore(G, ref odwiedzone, i,ref licznik);                    
                 }
             }            

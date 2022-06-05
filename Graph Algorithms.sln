@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNS", "DNS\DNS.csproj", "{184C3357-A1B3-480A-87DA-18B4E8362606}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFS_Algorithm", "DFS_Algorithm\DFS_Algorithm.csproj", "{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{184C3357-A1B3-480A-87DA-18B4E8362606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{184C3357-A1B3-480A-87DA-18B4E8362606}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{184C3357-A1B3-480A-87DA-18B4E8362606}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{184C3357-A1B3-480A-87DA-18B4E8362606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0AEA8F-C845-4D9E-835F-0790B5F1AF28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

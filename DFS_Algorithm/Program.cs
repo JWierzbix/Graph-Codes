@@ -1,5 +1,10 @@
 ﻿using System;
-namespace DNS
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DFS_Algorithm
 {
     class Program
     {
@@ -37,12 +42,13 @@ namespace DNS
                           {0,0,0,0,0,0,0,0 },
                           {0,0,0,0,0,0,1,0 }
                             };
-            DFS(G2);         
+            DFS(G2);
+            Console.ReadKey();
         }
         public static void CzyMaCykle(int[,] G, Vertex[] visited)
         {
             int cykle = 0;
-            string zapis = ""; 
+            string zapis = "";
             for (int i = 0; i < visited.Length; i++)
             {
                 for (int j = 0; j < visited.Length; j++)
@@ -51,11 +57,11 @@ namespace DNS
                     if (visited[i].pre < visited[j].pre && visited[j].pre < visited[j].post && visited[j].post < visited[i].post && G[i, j] == 1)
                     {
                         cykle++;
-                        zapis += $"{(char)(65+i)}-{(char)(65 + j)} \n";
+                        zapis += $"{(char)(65 + i)}-{(char)(65 + j)} \n";
                     }
                 }
-            }            
-            Console.WriteLine("Graf G ma {0} cykli:",cykle);
+            }
+            Console.WriteLine("Graf G ma {0} cykli:", cykle);
             Console.WriteLine(zapis);
         }
         public static void DFS(int[,] G)
@@ -81,23 +87,23 @@ namespace DNS
                 Console.WriteLine($"{(char)a}: " + odwiedzone[i]);
                 a++;
             }
-            Console.WriteLine("ilość spójnych skłądowych: {0}",spojne_składowe);
-            Console.WriteLine("Czy graf jest spójny? -> {0}",spojne_składowe==1);
-            CzyMaCykle(G,odwiedzone);
+            Console.WriteLine("ilość spójnych skłądowych: {0}", spojne_składowe);
+            Console.WriteLine("Czy graf jest spójny? -> {0}", spojne_składowe == 1);
+            CzyMaCykle(G, odwiedzone);
         }
-        public static void Explore(int[,] G,ref Vertex[] odwiedzone,int v ,ref int licznik)
+        public static void Explore(int[,] G, ref Vertex[] odwiedzone, int v, ref int licznik)
         {
             odwiedzone[v].odwiedzone = true;
             odwiedzone[v].pre = licznik;
             licznik++;
-            for(int i = 0;i < G.GetLength(1); i++)
+            for (int i = 0; i < G.GetLength(1); i++)
             {
-                if(G[v,i]==1 && odwiedzone[i].odwiedzone == false)
+                if (G[v, i] == 1 && odwiedzone[i].odwiedzone == false)
                 {
                     G[v, i] = -1;//zaznaczamy że ta krawędź została już odwiedzona
-                    Explore(G, ref odwiedzone, i,ref licznik);                    
+                    Explore(G, ref odwiedzone, i, ref licznik);
                 }
-            }            
+            }
             odwiedzone[v].post = licznik;
             licznik++;
         }
@@ -109,7 +115,7 @@ namespace DNS
         public int post;
         public override string ToString()
         {
-            return $"pre={pre+1} post={post+1}";
+            return $"pre={pre + 1} post={post + 1}";
         }
     }
 }

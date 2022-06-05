@@ -33,6 +33,7 @@ namespace DFS_Algorithm
                          {0,0,0,0,0,0,0,1,0,0,0,0}
                            };
             //3 przykład - graf skierowany (Macierz asymetryczna)
+            //3 przykład nie działa!!! - dla grafu skierowanego potrzebna jest poprawka
             int[,] G3 = { {0,1,1,0,0,1,0,0 },
                           {0,0,0,0,1,0,0,0 },
                           {0,0,0,1,0,0,0,0 },
@@ -42,7 +43,7 @@ namespace DFS_Algorithm
                           {0,0,0,0,0,0,0,0 },
                           {0,0,0,0,0,0,1,0 }
                             };
-            DFS(G2);
+            DFS(G1);
             Console.ReadKey();
         }
         public static void CzyMaCykle(int[,] G, Vertex[] visited)

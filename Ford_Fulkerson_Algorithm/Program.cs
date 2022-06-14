@@ -29,10 +29,14 @@ namespace Ford_Fulkerson_Algorithm
                            {0,0,0,0,7,0,1,0 },//5
                            {0,0,0,0,0,0,0,6 },//6
                            {0,0,0,0,0,0,0,0 }//7
-                             };
-            //Ford_Fulkerson_Pomocniczy(G2,0,7);
-            Read_from_File("C:/Users/Kuba/Desktop/dane.txt");            
+                             };            
+            Aplikacja();
             Console.ReadKey();
-        }               
+        }   
+        public static void Aplikacja()
+        {
+            int[,] G = Read_from_File("C:/Users/Kuba/Desktop/dane.txt");
+            Ford_Fulkerson_Pomocniczy(G, 0, G.GetLength(0)-1);
+        }
     }   
 }

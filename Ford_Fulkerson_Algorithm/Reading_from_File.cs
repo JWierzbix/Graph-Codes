@@ -25,7 +25,7 @@ namespace Ford_Fulkerson_Algorithm
         /// metoda wczytująca dane z pliku tekstowego do wykonania algorytmu Forda-Fulksersona
         /// </summary>
         /// <param name="path">URL ścieżki pliku z danymi</param>
-        public static void Read_from_File(string path)
+        public static int[,] Read_from_File(string path)
         {
             //wczytanie danych z pliku
             StreamReader sr = new StreamReader(path);
@@ -74,8 +74,8 @@ namespace Ford_Fulkerson_Algorithm
                     element = "";
                     indeks++;
                 }
-            }
-            Console.WriteLine(G[0,0]);
+            }            
+            return G;
         }
     }
 }

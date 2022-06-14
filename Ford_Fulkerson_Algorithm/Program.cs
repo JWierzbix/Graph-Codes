@@ -12,16 +12,35 @@ namespace Ford_Fulkerson_Algorithm
         static void Main(string[] args)
         {
             //1 przykład- graf skierowany, asymetryczny
-            int[,] G2 = { {0,5,0,4,0,0 },
+            int[,] G1 = { {0,5,0,4,0,0 },
                           {7,0,0,0,7,0 },
                           {0,5,0,1,0,3 },
                           {3,0,3,0,6,0 },
                           {0,2,0,2,0,8 },
                           {0,0,6,0,4,0 }
                            };
-            Ford_Fulkerson(G2,0,5);
+            //2 przykład- graf skierowany, asymetryczny
+            int[,] G2 = {
+                           {0,3,0,2,0,9,0,0 },//0
+                           {0,0,6,0,0,0,0,0 },//1
+                           {0,0,0,7,0,0,0,2 },//2
+                           {0,0,0,0,0,0,5,0 },//3
+                           {0,2,0,0,0,0,0,4 },//4
+                           {0,0,0,0,7,0,1,0 },//5
+                           {0,0,0,0,0,0,0,6 },//6
+                           {0,0,0,0,0,0,0,0 }//7
+                             };
+            Ford_Fulkerson(G2,0,7);
             Console.ReadKey();
         }
+        //waga 0 jest dla par wierzchołków, które nie są połączone przez żadną krawędź
+        //waga >= 0 jest dla par wierzchołków, które są połączone krawędzią skierowaną
+        /// <summary>
+        /// Algorytm oblicza nam maksymalny przepływ w sieci
+        /// </summary>
+        /// <param name="G">Macierz sąsiedztwa grafu</param>
+        /// <param name="start">wierzchołek startowy grafu - źródło</param>
+        /// <param name="stop">wierzchołek końcowy grafu - ujście</param>
         public static void Ford_Fulkerson(int[,] G, int start, int stop) 
         {
             int licznik = 0;
@@ -88,23 +107,30 @@ namespace Ford_Fulkerson_Algorithm
                 ścieżka.Add(visited[last]);
                 last = visited[last].previous;
             }
-            Console.WriteLine("------------------");
+            Console.WriteLine("==================");
             Console.WriteLine($"pętla {licznik}:");
             Console.WriteLine("---------");
             foreach (Vertex v in ścieżka)
             {
                 Console.WriteLine($"{v.previous}-{v.number} waga:{v.distance}");
             }
-            Console.WriteLine("------------------");
+            Console.WriteLine("==================");
 
             return ścieżka;
         }
     }
+
     class Vertex
     {
-        public bool visited;
-        public int number;
-        public int distance;
-        public int previous;
+        public bool visited; /* wartośc boolowska, mówiąca nam, 
+        czy dany wierzchołek został już odwiedzony */
+
+        public int number;/* numer wierzchołka */
+
+        public int distance;/* długość krawędzi, pomiędzy 
+        wierzchołku o numerze "number", a wierzchołkime o numerze "previous" */
+
+        public int previous;/* wierzchołek poprzedzający wierzchołek o numerze
+        "number", podczas przeszukiwania algorytmem BFS */
     }
 }

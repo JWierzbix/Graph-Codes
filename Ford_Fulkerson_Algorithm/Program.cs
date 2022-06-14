@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Ford_Fulkerson_Algorithm
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
@@ -30,107 +30,9 @@ namespace Ford_Fulkerson_Algorithm
                            {0,0,0,0,0,0,0,6 },//6
                            {0,0,0,0,0,0,0,0 }//7
                              };
-            Ford_Fulkerson(G2,0,7);
+            //Ford_Fulkerson_Pomocniczy(G2,0,7);
+            Read_from_File("C:/Users/Kuba/Desktop/dane.txt");            
             Console.ReadKey();
-        }
-        //waga 0 jest dla par wierzchołków, które nie są połączone przez żadną krawędź
-        //waga >= 0 jest dla par wierzchołków, które są połączone krawędzią skierowaną
-        /// <summary>
-        /// Algorytm oblicza nam maksymalny przepływ w sieci
-        /// </summary>
-        /// <param name="G">Macierz sąsiedztwa grafu</param>
-        /// <param name="start">wierzchołek startowy grafu - źródło</param>
-        /// <param name="stop">wierzchołek końcowy grafu - ujście</param>
-        public static void Ford_Fulkerson(int[,] G, int start, int stop) 
-        {
-            int licznik = 0;
-            List<Vertex> ścieżka;
-            do
-            {
-                ścieżka = BFS(G, licznik);
-                int min = int.MaxValue;
-                foreach(Vertex v in ścieżka)
-                {
-                    min = Math.Min(min,v.distance);
-                }
-                for (int i = 0; i < ścieżka.Count; i++)
-                {
-                    G[ścieżka[i].previous, ścieżka[i].number] -= min;
-                    G[ścieżka[i].number, ścieżka[i].previous] += min;
-                }
-                licznik++;
-            } while (ścieżka[0].number == stop);
-            int max_flow = 0;
-            for (int i = 0; i < G.GetLength(0); i++)
-            {
-                max_flow += G[stop, i];
-            }
-            Console.WriteLine($"Maxymalny przepływ: {max_flow}");
-        }
-        //algorytm pomocniczy BFS
-        public static List<Vertex> BFS(int[,] G, int licznik)
-        {
-            if (G.GetLength(0) == 0) return null; //warunek stopu
-            //inicjalizacja zmiennych
-            Queue<int> kolejka = new Queue<int>();
-            Vertex[] visited = new Vertex[G.GetLength(0)];
-            for (int i = 0; i < G.GetLength(0); i++)
-            {
-                visited[i] = new Vertex();
-                visited[i].number = i;
-            }
-            //inicjalizacja pętli - wsadzamy pierwszy element 
-            kolejka.Enqueue(0);
-            visited[0].visited = true;
-            visited[0].distance = 0;
-            visited[0].previous = -1;//-1 oznacza że nie miał przodka i jest początkowy
-            //rozpoczynamy pętlę
-            int last = -1;
-            while (kolejka.Count != 0)
-            {
-                int v = kolejka.Dequeue();
-                last = v;
-                for (int i = 0; i < G.GetLength(1); i++)
-                {
-                    if (G[v, i] != 0 && visited[i].visited == false)
-                    {
-                        kolejka.Enqueue(visited[i].number);
-                        visited[i].visited = true;
-                        visited[i].distance = G[v,i];
-                        visited[i].previous = v;
-                    }
-                }
-            }            
-            List<Vertex> ścieżka = new List<Vertex>();            
-            while (visited[last].previous != -1)
-            {
-                ścieżka.Add(visited[last]);
-                last = visited[last].previous;
-            }
-            Console.WriteLine("==================");
-            Console.WriteLine($"pętla {licznik}:");
-            Console.WriteLine("---------");
-            foreach (Vertex v in ścieżka)
-            {
-                Console.WriteLine($"{v.previous}-{v.number} waga:{v.distance}");
-            }
-            Console.WriteLine("==================");
-
-            return ścieżka;
-        }
-    }
-
-    class Vertex
-    {
-        public bool visited; /* wartośc boolowska, mówiąca nam, 
-        czy dany wierzchołek został już odwiedzony */
-
-        public int number;/* numer wierzchołka */
-
-        public int distance;/* długość krawędzi, pomiędzy 
-        wierzchołku o numerze "number", a wierzchołkime o numerze "previous" */
-
-        public int previous;/* wierzchołek poprzedzający wierzchołek o numerze
-        "number", podczas przeszukiwania algorytmem BFS */
-    }
+        }               
+    }   
 }

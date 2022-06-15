@@ -31,12 +31,7 @@ namespace Ford_Fulkerson_Algorithm
                            {0,0,0,0,0,0,0,0 }//7
                              };            
             Aplikacja();
-            Console.ReadKey();
-        }   
-        public static void Aplikacja()
-        {
-            int[,] G = Read_from_File("C:/Users/Kuba/Desktop/dane.txt");
-            Ford_Fulkerson_Pomocniczy(G, 0, G.GetLength(0)-1);
-        }
+            Console.ReadKey();            
+        }           
     }   
 }

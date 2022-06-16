@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Max_Flow_in_Network.Libraries
+namespace Project_Max_Flow_in_Network
 {
-    public partial class Form1
+    public partial class Project
     {
         //waga 0 jest dla par wierzchołków, które nie są połączone przez żadną krawędź
         //waga >= 0 jest dla par wierzchołków, które są połączone krawędzią skierowaną
@@ -16,7 +16,7 @@ namespace Project_Max_Flow_in_Network.Libraries
         /// <param name="G">Macierz sąsiedztwa grafu</param>
         /// <param name="start">wierzchołek startowy grafu - źródło</param>
         /// <param name="stop">wierzchołek końcowy grafu - ujście</param>
-        public static void Ford_Fulkerson_Pomocniczy(int[,] G, int start, int stop)
+        public void Ford_Fulkerson_Pomocniczy(int[,] G, int start, int stop)
         {
             int licznik = 0;
             List<Vertex> ścieżka;
@@ -39,8 +39,8 @@ namespace Project_Max_Flow_in_Network.Libraries
                     }
                 }
                 minimum += "}= " + min;
-                Console.WriteLine(minimum);
-                Console.WriteLine("==================");
+                output += minimum+"\n";
+                output += "================== \n";
                 for (int i = 0; i < ścieżka.Count; i++)
                 {
                     G[ścieżka[i].previous, ścieżka[i].number] -= min;
@@ -53,7 +53,8 @@ namespace Project_Max_Flow_in_Network.Libraries
             {
                 max_flow += G[stop, i];
             }
-            Console.WriteLine($"Makymalny przepływ w sieci wynosi: {max_flow}");
+            output += $"Makymalny przepływ w sieci wynosi: {max_flow}";
+            output += "\n \n";
         }
     }
 }

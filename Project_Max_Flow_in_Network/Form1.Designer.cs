@@ -32,11 +32,12 @@
             this.path_name = new System.Windows.Forms.TextBox();
             this.b_source = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Choosen_Path_Text_box = new System.Windows.Forms.Label();
             this.Choosen_Path_Display = new System.Windows.Forms.Label();
             this.b_Proccess = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.output_window = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -70,14 +71,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 188);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(820, 250);
-            this.webBrowser1.TabIndex = 3;
             // 
             // Choosen_Path_Text_box
             // 
@@ -117,17 +110,40 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Zaakceptuj";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(13, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Wynik:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // output_window
+            // 
+            this.output_window.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.output_window.Location = new System.Drawing.Point(15, 125);
+            this.output_window.Name = "output_window";
+            this.output_window.ReadOnly = true;
+            this.output_window.Size = new System.Drawing.Size(817, 313);
+            this.output_window.TabIndex = 9;
+            this.output_window.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 450);
+            this.Controls.Add(this.output_window);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.b_Proccess);
             this.Controls.Add(this.Choosen_Path_Display);
             this.Controls.Add(this.Choosen_Path_Text_box);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.b_source);
             this.Controls.Add(this.path_name);
             this.Controls.Add(this.label1);
@@ -147,11 +163,12 @@
         private System.Windows.Forms.TextBox path_name;
         private System.Windows.Forms.Button b_source;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label Choosen_Path_Text_box;
         private System.Windows.Forms.Label Choosen_Path_Display;
         private System.Windows.Forms.Button b_Proccess;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox output_window;
     }
 }
 

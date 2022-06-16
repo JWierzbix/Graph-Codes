@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-namespace Project_Max_Flow_in_Network.Libraries
+namespace Project_Max_Flow_in_Network
 {
-    public partial class Form1 
+    public partial class Project
     {
         /*plik ma zawierać macierz sąsiedztwa w postaci:
          * {x,x,x,x},
@@ -25,7 +25,7 @@ namespace Project_Max_Flow_in_Network.Libraries
         /// metoda wczytująca dane z pliku tekstowego do wykonania algorytmu Forda-Fulksersona
         /// </summary>
         /// <param name="path">URL ścieżki pliku z danymi</param>
-        public static int[,] Read_from_File(string path)
+        public void Read_from_File(string path)
         {
             //wczytanie danych z pliku
             StreamReader sr = new StreamReader(path);
@@ -75,7 +75,7 @@ namespace Project_Max_Flow_in_Network.Libraries
                     indeks++;
                 }
             }
-            return G;
+            Graph = G;
         }
     }
 }

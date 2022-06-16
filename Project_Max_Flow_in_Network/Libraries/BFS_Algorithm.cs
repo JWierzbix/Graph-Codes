@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Max_Flow_in_Network.Libraries
+namespace Project_Max_Flow_in_Network
 {
     //POMOCNICZY ALGORYTM BFS DO PRZESZUKIWANIA SIECI RESIDUALNEJ
-    public partial class Form1
-    {
-        internal static List<Vertex> BFS(int[,] G, int licznik)
+    public partial class Project
+    {        
+        internal List<Vertex> BFS(int[,] G, int licznik)
         {
             if (G.GetLength(0) == 0) return null; //warunek stopu
             //inicjalizacja zmiennych
@@ -48,14 +48,14 @@ namespace Project_Max_Flow_in_Network.Libraries
                 ścieżka.Add(visited[last]);
                 last = visited[last].previous;
             }
-            Console.WriteLine("==================");
-            Console.WriteLine($"Wynik {licznik} pętli BFS:");
-            Console.WriteLine("---------");
+            output += "================== \n";
+            output += $"Wynik {licznik} pętli BFS: \n";
+            output += "--------- \n";
             foreach (Vertex v in ścieżka)
             {
-                Console.WriteLine($"{v.previous}-{v.number} waga:{v.distance}");
+                output += $"{v.previous}-{v.number} waga:{v.distance} \n";
             }
-            Console.WriteLine("------------------");
+            output += "------------------ \n";
 
             return ścieżka;
         }

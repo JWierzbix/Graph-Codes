@@ -13,7 +13,7 @@ namespace Project_Max_Flow_in_Network
     public partial class Form1 : Form
     {
         OpenFileDialog file;
-        string data_path;
+        Project project;        
         public Form1()
         {
             InitializeComponent();
@@ -24,8 +24,7 @@ namespace Project_Max_Flow_in_Network
             file = new OpenFileDialog();
             file.Filter = "Text files(*.txt)|*.txt";
             if(file.ShowDialog() == DialogResult.OK)
-            {
-                data_path = file.FileName;
+            {                
                 path_name.Text = file.FileName;
                 Choosen_Path_Display.Text = file.FileName;
             }
@@ -38,9 +37,24 @@ namespace Project_Max_Flow_in_Network
 
         private void path_name_TextChanged(object sender, EventArgs e)
         {
-            data_path = path_name.Text;
+            file = new OpenFileDialog();
+            file.FileName = path_name.Text;            
             path_name.Text = path_name.Text;
             Choosen_Path_Display.Text = path_name.Text;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!file.CheckFileExists) return;//wyskakuje błąd o braku szukanego pliku
+            project = new Project();
+            project.Read_from_File(file.FileName);
+            project.Ford_Fulkerson_Pomocniczy(project.Graph, 0,project.Graph.GetLength(0)-1);
+            output_window.Text = project.output;
         }
     }
 }

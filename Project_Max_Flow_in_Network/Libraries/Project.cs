@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Flow_in_Network
+namespace Project_Max_Flow_in_Network
 {
-    class Program
+    public partial class Project
     {
-        static void Main(string[] args)
-        {
-        }
+        public string output;
+        public int[,] Graph;
     }
 }

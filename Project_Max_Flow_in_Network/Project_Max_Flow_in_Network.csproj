@@ -53,9 +53,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libraries\Aplication.cs" />
     <Compile Include="Libraries\BFS_Algorithm.cs" />
     <Compile Include="Libraries\Ford_Fulkerson_Algorithm.cs" />
+    <Compile Include="Libraries\Project.cs" />
     <Compile Include="Libraries\Reading_from_File.cs" />
     <Compile Include="Libraries\Vertex.cs" />
     <Compile Include="Program.cs" />

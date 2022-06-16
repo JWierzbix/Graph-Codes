@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Max_Flow_in_Network.Libraries
+namespace Project_Max_Flow_in_Network
 {
     class Vertex
     {
